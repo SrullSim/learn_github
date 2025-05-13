@@ -2,12 +2,39 @@
 
 
 
+using System.Text;
+
 class Program
-{
-    //  build a menu 
-    static void ValidInput()
     {
-        Console.WriteLine("");
+    static void Main(string[] args)
+    {
+        CasesToChoise();
+    }
+
+    
+    
+    
+    
+    
+    //  build a menu 
+    static bool ValidInput(string[] input)
+    {
+        if (input.Length < 3)
+        {
+            return false;
+        }
+        else 
+            foreach(string s in input)
+            {
+                if (!(int.TryParse(s, out int number)))
+                    {
+                    if (!(number < 0))
+                    {
+                        return false;
+                    }}
+            }
+
+        return true;
     }
 
 
@@ -21,7 +48,16 @@ class Program
     // cases 
     static void CasesToChoise()
     {
-        Console.WriteLine("");
+        Console.WriteLine("1 - enter a new series");
+        Console.WriteLine("2 - print the series as is");
+        Console.WriteLine("3 - print the series revers");
+        Console.WriteLine("4 - print sorted series ");
+        Console.WriteLine("5 - find the mwa number in the series");
+        Console.WriteLine("6 - find the min number ");
+        Console.WriteLine("7 - find the average of the series");
+        Console.WriteLine("8 - number of elents in the series");
+        Console.WriteLine("9 - sum of the elements");
+        Console.WriteLine("10 - exit");
     }
 
 
@@ -102,6 +138,6 @@ class Program
     }
 
 
-
+    
 }
 
