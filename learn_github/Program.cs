@@ -9,13 +9,47 @@ class Program
   {
     static List<int> SeriesInput = new List<int>([12,34,655,55]);
 
+    
+    static bool valid = ValidInput(SeriesInput);
+    
     static void Main(string[] args)
     {
-        PrintInput(SeriesInput);
+        
+        
+        
+        while (valid)
+        {
+            WriteMenu();
+            
+        }
+      
+        
+
+
+
+
+
+
+
+
+
+
+
     }
     
     
-    // convert to list 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // convert to int list 
     static List<int> ConvertToIntList(string[] input)
     {
         List<int> int_list = new List<int>();
@@ -140,7 +174,6 @@ class Program
                 input_list.Add(NewList);
             }
         }
-        return input_list;
     }
 
 
@@ -155,9 +188,13 @@ class Program
 
 
     // print revers - case 3
-    static void PrintRevers(List<int> revers)
+    static void PrintRevers(List<int> input)
     {
-        Console.WriteLine("");
+        int last = input.Count - 1;
+        for (int i = last; i >= 0; i--)
+        {
+            Console.Write(input[i]+ ",");
+        }
     }
 
 
