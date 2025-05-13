@@ -62,7 +62,7 @@ class Program
     // cases 
     static void CasesToChoise()
     {
-        Console.WriteLine("1 - enter a new series");
+        Console.WriteLine("1 - enter a new series \n press q to send !!");
         Console.WriteLine("2 - print the series as is");
         Console.WriteLine("3 - print the series revers");
         Console.WriteLine("4 - print sorted series ");
@@ -83,13 +83,16 @@ class Program
         while (true)
         {
             string chois = Console.ReadLine();
-            
-            if(chois == "q" )
+
+            if (chois == "q")
             {
-                break;
+                return input_list;
             }
-            input_list.Add(chois);
-        } 
+            else
+            {
+                input_list.Add(chois);
+            }
+        }
         return input_list;
     }
 
@@ -109,9 +112,14 @@ class Program
 
 
     // print sort - case 4
-    static void PrintSort(List<string> input)
+    static void PrintSort(List<int> input)
     {
-        Console.WriteLine("");
+        List<int> SortedList = new List<int>(input);
+        SortedList.Sort();
+        foreach(int i in SortedList)
+        {
+            Console.Write(i + ",");
+        }
     }
         
 
@@ -132,9 +140,17 @@ class Program
 
 
     // print min - case 6
-    static void PrintMin(List<string> input)
+    static void PrintMin(List<int> input)
     {
-        Console.WriteLine("");
+        int min = input.Max();
+        foreach(int num in input)
+        {
+            if(num > min)
+            {
+                min = num;
+            }
+        }
+        Console.WriteLine(min);
     }
 
 
