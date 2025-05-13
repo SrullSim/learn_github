@@ -5,35 +5,49 @@
 using System.Text;
 
 class Program
-    {
+    
+    
+
+{
     static void Main(string[] args)
     {
-        CasesToChoise();
+        GetNewList();
+    }
+    
+    
+    // convert to list 
+    static List<int> ConvertToIntList(string[] input)
+    {
+        List<int> int_list = new List<int>();
+        foreach(string num in input)
+        {
+            if (int.TryParse(num, out int number))
+            {
+                int_list.Add(number);
+            }
+        }
+        return int_list;
     }
 
-    
-    
-    
-    
-    
+
+
+
+
     //  build a menu 
-    static bool ValidInput(string[] input)
+    static bool ValidInput(List<int> input)
     {
-        if (input.Length < 3)
+        if (input.Count < 3)
         {
             return false;
         }
         else 
-            foreach(string s in input)
+            foreach(int s in input)
             {
-                if (!(int.TryParse(s, out int number)))
-                    {
-                    if (!(number < 0))
-                    {
-                        return false;
-                    }}
+               if (!(s < 0))
+               {
+                    return false;
+               }
             }
-
         return true;
     }
 
@@ -62,15 +76,21 @@ class Program
 
 
     // get new input - case 1
-    static List<string> GetNewList(string[] args)
+    static List<string> GetNewList()
     {
         List<string> input_list = new List<string>();
 
-        Console.ReadLine();
-
-        
-
-        return new List<string>();
+        while (true)
+        {
+            string chois = Console.ReadLine();
+            
+            if(chois == "q" )
+            {
+                break;
+            }
+            input_list.Add(chois);
+        } 
+        return input_list;
     }
 
 
@@ -138,12 +158,6 @@ class Program
         Console.WriteLine("");
     }
 
-
-    // convert to list 
-    static List<int> ConvertToList(string[] input)
-    {
-        return new List<int> (ConvertToList(input));
-    }
 
 
     // convert to int 
