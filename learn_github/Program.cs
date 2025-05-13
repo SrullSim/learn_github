@@ -62,8 +62,14 @@ class Program
 
 
     // get new input - case 1
-    static List<string> GetNewList()
+    static List<string> GetNewList(string[] args)
     {
+        List<string> input_list = new List<string>();
+
+        Console.ReadLine();
+
+        
+
         return new List<string>();
     }
 
@@ -71,7 +77,7 @@ class Program
     // write input - case 2
     static void PrintInput(List<string> input)
     {
-        Console.WriteLine(input);
+        
     }
 
 
@@ -92,7 +98,16 @@ class Program
     // print max - case 5
     static void PrintMax(List<string> input)
     {
-        Console.WriteLine("");
+        int max = 0;
+        foreach(string chr in input)
+        {
+            int int_chr = Convert.ToInt32(chr);
+            if(int_chr > max)
+            {
+                max = int_chr;
+            }
+        }
+        Console.WriteLine(max);
     }
 
 
