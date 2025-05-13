@@ -6,12 +6,12 @@ using System.Text;
 
 class Program
     
-    
+  {
+    static List<int> SeriesInput = new List<int>([12,34,655,55]);
 
-{
     static void Main(string[] args)
     {
-        GetNewList();
+        PrintInput(SeriesInput);
     }
     
     
@@ -23,10 +23,14 @@ class Program
         {
             if (int.TryParse(num, out int number))
             {
-                int_list.Add(number);
+                SeriesInput.Add(number);
+            }
+            else
+            {
+                Console.WriteLine("please enter series of positive numbers");
             }
         }
-        return int_list;
+        return SeriesInput;
     }
 
 
@@ -55,23 +59,53 @@ class Program
     // keep the program alive 
     static void WriteMenu(string menuName)
     {
-        Console.WriteLine("");
-    }
-
-
-    // cases 
-    static void CasesToChoise()
-    {
         Console.WriteLine("1 - enter a new series \n press q to send !!");
         Console.WriteLine("2 - print the series as is");
         Console.WriteLine("3 - print the series revers");
         Console.WriteLine("4 - print sorted series ");
-        Console.WriteLine("5 - find the mwa number in the series");
+        Console.WriteLine("5 - find the max number in the series");
         Console.WriteLine("6 - find the min number ");
         Console.WriteLine("7 - find the average of the series");
         Console.WriteLine("8 - number of elents in the series");
         Console.WriteLine("9 - sum of the elements");
         Console.WriteLine("10 - exit");
+    }
+
+
+    // cases 
+    static void CasesToChoise(string chois)
+    {
+        switch (chois)
+        {
+            case "1":
+                GetNewList();
+                break;
+            
+            case "2":
+                PrintInput(SeriesInput);
+                break;
+
+            case "3":
+                PrintRevers(SeriesInput);
+                break;
+
+            case "4":
+                PrintSort(SeriesInput);
+                break;
+
+            case "5":
+                PrintMax(SeriesInput);
+                break;
+
+            case "6":
+                PrintMin(SeriesInput);
+                break;
+
+            case 7:
+                PrintAverage(SeriesInput);
+
+
+        }
     }
 
 
@@ -82,15 +116,15 @@ class Program
 
         while (true)
         {
-            string chois = Console.ReadLine();
+            string NewList = Console.ReadLine();
 
-            if (chois == "q")
+            if (NewList == "q")
             {
                 return input_list;
             }
             else
             {
-                input_list.Add(chois);
+                input_list.Add(NewList);
             }
         }
         return input_list;
@@ -98,14 +132,17 @@ class Program
 
 
     // write input - case 2
-    static void PrintInput(List<string> input)
+    static void PrintInput(List<int> input)
     {
-        
+        foreach (int num in input)
+        {
+            Console.Write(num + ",");
+        }
     }
 
 
     // print revers - case 3
-    static void PrintRevers(List<string> revers)
+    static void PrintRevers(List<int> revers)
     {
         Console.WriteLine("");
     }
@@ -118,24 +155,23 @@ class Program
         SortedList.Sort();
         foreach(int i in SortedList)
         {
-            Console.Write(i + ",");
+            Console.Write("here the series in order - " + i + ",");
         }
     }
         
 
     // print max - case 5
-    static void PrintMax(List<string> input)
+    static void PrintMax(List<int> input)
     {
         int max = 0;
-        foreach(string chr in input)
+        foreach(int chr in input)
         {
-            int int_chr = Convert.ToInt32(chr);
-            if(int_chr > max)
+            if(chr > max)
             {
-                max = int_chr;
+                max = chr;
             }
         }
-        Console.WriteLine(max);
+        Console.WriteLine(max + "is the bigger number in the series");
     }
 
 
@@ -150,28 +186,36 @@ class Program
                 min = num;
             }
         }
-        Console.WriteLine(min);
+        Console.WriteLine(min + " - is the minimum number in your series");
     }
 
 
     // print average - case 7
-    static void PrintAverage(List<string> input)
+    static void PrintAverage(List<int> input)
     {
-        Console.WriteLine("");
+        int average = 0;
+        foreach(int num in input)
+        {
+            average += num;
+        }
+        Console.WriteLine("the average of your series is - " + average);
     }
 
 
     // print lengh of list - case 8
-    static void Printlen(List<string> input)
+    static void Printlen(List<int> input)
     {
-        Console.WriteLine("");
+        int len = input.Count();
+        Console.WriteLine("you have " + len +" in your series");
+
     }
 
 
     //  print sum of list - case 9 
-    static void PrintSum(List<string> input)
+    static void PrintSum(List<int> input)
     {
-        Console.WriteLine("");
+        int sum = input.Sum();
+        Console.WriteLine("the sum of all your series is - " + sum);
     }
 
 
