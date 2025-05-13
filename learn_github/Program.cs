@@ -57,8 +57,9 @@ class Program
 
 
     // keep the program alive 
-    static void WriteMenu(string menuName)
+    static void WriteMenu()
     {
+        Console.WriteLine("          Please select one of the options      ");
         Console.WriteLine("1 - enter a new series \n press q to send !!");
         Console.WriteLine("2 - print the series as is");
         Console.WriteLine("3 - print the series revers");
@@ -73,8 +74,9 @@ class Program
 
 
     // cases 
-    static void CasesToChoise(string chois)
+    static void CasesToChoise()
     {
+        string chois = Console.ReadLine();
         switch (chois)
         {
             case "1":
@@ -101,10 +103,21 @@ class Program
                 PrintMin(SeriesInput);
                 break;
 
-            case 7:
+            case "7":
                 PrintAverage(SeriesInput);
+                break;
 
+            case "8":
+                Printlen(SeriesInput);
+                break;
 
+            case "9":
+                PrintSum(SeriesInput);
+                break;
+
+            case "10":
+                Console.WriteLine("see you 👋");
+                break;
         }
     }
 
