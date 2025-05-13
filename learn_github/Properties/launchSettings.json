@@ -1,8 +1,7 @@
 {
   "profiles": {
     "learn_github": {
-      "commandName": "Project",
-      "commandLineArgs": "22, 33, 99"
+      "commandName": "Project"
     }
   }
 }
