@@ -15,7 +15,7 @@ class Program
 
         bool valid = ValidInput(SeriesInput);
 
-        while (true)
+        while (runing)
         {
             WriteMenu();
         }
@@ -142,18 +142,26 @@ class Program
     {
         List<int> int_list = new List<int>();
 
-        foreach(char s in input)
+        foreach (string s in input.Split())
         {
-            if (!Char.IsLetter(s) )
+            if (s != " ")
             {
-                int num = s - 48;
-                int_list.Add(num);
+                try
+                {
+                    int num = int.Parse(s);
+                    int_list.Add(num);
+                }
+                catch
+                {
+                    Console.WriteLine("please enter series of positive numbers");
+                }
             }
             else
             {
-                Console.WriteLine("please enter series of positive numbers");
+                Console.WriteLine("eeeeeeeeeeeeeee");
             }
         }
+        
         return int_list;
     }
 
