@@ -277,7 +277,7 @@ class Program
 
     
 
-
+    /*
 // cases 
 static void CasesToChoise(string chois)
 {
@@ -327,46 +327,26 @@ static void CasesToChoise(string chois)
             Console.WriteLine("invalid choise: choose again");
             break;
     }
-}
+    }*/
 
 
+    //    List<string> input_list = new List<string>();
 
+    //    SeriesInput.Clear();
 
+    //        while (true)
+    //        {
+    //            string NewChoise = Console.ReadLine();
 
+    //            if (NewChoise == "q")
+    //              {
+    //                input_list.Add(NewChoise);
+    //                return ConvertToIntList(input_list);
+    //              }
+    //            else
+    //{
+    //    input_list.Add(NewChoise);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    List<string> input_list = new List<string>();
-
-//    SeriesInput.Clear();
-
-//        while (true)
-//        {
-//            string NewChoise = Console.ReadLine();
-
-//            if (NewChoise == "q")
-//              {
-//                input_list.Add(NewChoise);
-//                return ConvertToIntList(input_list);
-//              }
-//            else
-//{
-//    input_list.Add(NewChoise);
-
-//}
-        //}
+    //}
+    //}
 }
